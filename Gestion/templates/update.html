@@ -1,0 +1,44 @@
+{% extends "bootstrap/base.html"%}
+
+{%block content%}
+
+<div class="container">
+    <hr>
+
+    <h2 align=center>Edición De Registros</h2>
+        <center>
+            <img src="http://icons.iconarchive.com/icons/hopstarter/soft-scraps/72/Text-Edit-icon.png">
+        </center>
+    <hr>
+
+    <form action="/usuariosupdate/{{usuarios_t[0]['id']}}" method="post">
+        <div class="form-group">
+        NOMBRE:<br>
+       <input type="text" class="form-control" name="nombre" value="{{usuarios_t[0]['nombre']}}">
+       <br>
+       APELLIDO:<br>
+       <input type="text" class="form-control" name="apellido" value="{{usuarios_t[0]['apellido']}}">
+       <br>
+       IDENTIFICACION:<br>
+       <input type="text" class="form-control" name="identificacion" value="{{usuarios_t[0]['identificacion']}}">
+       <br>
+       EMAIL:<br>
+       <input type="text" class="form-control" name="email" value="{{usuarios_t[0]['email']}}">
+       <br>
+       PASSWORD:<br>
+       <input type="text" class="form-control" name="password" value="{{usuarios_t[0]['password']}}">
+       <br>
+       EDAD:<br>
+       <input type="text" class="form-control" name="edad" value="{{usuarios_t[0]['edad']}}">
+
+       <hr>
+      <div class="text-center">
+              <img src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-7/32/Save-icon.png">
+      <input type="submit" class="btn btn-primary" value="Actualizar Información">
+      </div>
+      <hr>
+
+</div>
+
+</div>
+{%endblock%}

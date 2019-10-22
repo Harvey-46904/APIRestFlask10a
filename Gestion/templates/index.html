@@ -1,0 +1,111 @@
+{% extends "bootstrap/base.html"%}
+
+
+{%block content%}
+
+<div class="container">
+    <hr>
+    <h1 align=center>PERSONAS</h1>
+    <center>
+    <img src="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/96/Actions-user-group-new-icon.png">
+    </center>
+    <hr>
+
+    <form action="/registro_usuarios" method="post">
+    <div class="form-group">
+      NOMBRE:<br>
+      <input type="text" class="form-control" name="nombre" >
+      <br>
+      APELLIDO:<br>
+      <input type="text" class="form-control" name="apellido" >
+      <br>
+      IDENTIFICACIÓN:<br>
+      <input type="text" class="form-control" name="identificacion" >
+      <br>
+      E-MAIL:<br>
+      <input type="text" class="form-control" name="email" >
+      <br>
+      PASSWORD:<br>
+      <input type="text" class="form-control" name="password" >
+      <br>
+      EDAD:<br>
+      <input type="text" class="form-control" name="edad" >
+      
+      <hr>
+      <div class="text-center">
+          <img src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-7/32/Save-icon.png">          
+      <input type="submit" class="btn btn-success" value="Guardar">
+      </div>
+      <hr>
+
+    </form>
+    </div> 
+    
+    <table style="text-align:center;" border="2" class="table table-striped">    
+
+      <tr>
+          {%for x in username[0]%}
+          <td><b>{{x}}</b></td>
+          {%endfor%}
+          <td><b>Eliminar</b></td>
+          <td><b>Actualizar</b></td>
+      </tr>
+      {%for x in range(0,tam)%}
+      <tr>
+        <td >
+            {{userid[x]}}
+        </td>
+        <td>
+            {{usernombre[x]}}
+        </td>
+        <td>
+            {{userapellido[x]}}
+        </td>
+        <td>
+            {{useridenti[x]}}
+        </td>
+        <td>
+            {{useremail[x]}}
+        </td>
+        <td>
+            {{usercontra[x]}}
+        </td>
+        <td>
+            {{usereda[x]}}
+        </td>
+        <td>
+          <form method="POST" action="/usuarios_delete/{{userid[x]}}">
+            <img src="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/32/Actions-application-exit-icon.png">
+            <input type="submit" class="btn btn-danger" value="Eliminar" />
+            </form>
+        </td>
+        <td>
+            
+            <form method="POST" action="/usuarios/{{userid[x]}}">
+                <img src="http://icons.iconarchive.com/icons/hopstarter/soft-scraps/32/Text-Edit-icon.png">
+              <input type="submit" class="btn btn-primary" value="Actualizar" />
+              </form>
+             
+          </td>
+    
+         
+          {%endfor%}
+        
+      </tr>
+      </table>
+
+      <div class="text-right">
+      <hr>
+      <h5>Developed By:</h5>
+      <h6>Harvey Eduardo Riascos Benavides</h6>
+      <h6>Luis Fernando Díaz Muñóz</h6>
+      <h6>Juan Sebastián Delgado Arturo</h6>
+      <h6>Ingeniería De Sistemas</h6>
+      <h6>X Semestre - Universidad Cesmag</h6>
+      <h6>Programación Web Con Frameworks</h6>
+      <br>
+      </div>
+
+    </div>
+
+{%endblock%}
